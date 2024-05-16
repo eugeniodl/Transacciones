@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Ejemplo01.Models
 {
-    // Clase de entidad AccountTransaction
     public class AccountTransaction
     {
         public int Id { get; set; }
