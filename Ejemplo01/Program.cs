@@ -23,7 +23,7 @@ using(var dbContext = new BankContext())
 
             if (originAccount == null || originAccount.Balance < quantityToTransfer)
             {
-                throw new Exception($"Fondos insuficientes en la cuenta {X_ORIGIN_ACCOUNT}." +
+                throw new Exception($"Fondos insuficientes en la cuenta {X_ORIGIN_ACCOUNT}. " +
                     $"¡Transacción abortada!");
             }
 
@@ -36,7 +36,7 @@ using(var dbContext = new BankContext())
             };
             dbContext.AccountTransactions.Add(debitTransaction);
 
-            // Depositar fondos a la cuenta de destino
+            // Depositar fondos en la cuenta de destino
             var creditTransaction = new AccountTransaction
             {
                 AccountNumber = X_DESTINATION_ACCOUNT,
@@ -49,7 +49,7 @@ using(var dbContext = new BankContext())
             dbContext.SaveChanges();
 
             // Provocar una excepción de conexión
-            throw new Exception("Simulación de error de conexión a la base de datos");
+            // throw new Exception("Simulación de error de conexión a la base de datos");
 
             // Confirmar la transacción
             transaction.Commit();
@@ -63,4 +63,5 @@ using(var dbContext = new BankContext())
                 $"los fondos no se han transferido: {ex.Message}");
         }
     }
+
 }

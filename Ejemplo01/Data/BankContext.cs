@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Ejemplo01.Data
 {
+    /// <summary>
+    /// Contexto de base de datos BankContext
+    /// </summary>
     public class BankContext : DbContext
     {
         public DbSet<AccountTransaction> AccountTransactions { get; set; }
@@ -32,13 +35,11 @@ namespace Ejemplo01.Data
                     Debit = 0M
                 });
 
-            modelBuilder.Entity<AccountTransaction>()
-                .Property(x => x.Credit)
+            modelBuilder.Entity<AccountTransaction>().Property(x => x.Credit)
                 .HasColumnType("decimal(18,2)");
 
 
-            modelBuilder.Entity<AccountTransaction>()
-                .Property(x => x.Debit)
+            modelBuilder.Entity<AccountTransaction>().Property(x => x.Debit)
                 .HasColumnType("decimal(18,2)");
         }
     }

@@ -5,7 +5,7 @@
 namespace Ejemplo01.Migrations
 {
     /// <inheritdoc />
-    public partial class ini : Migration
+    public partial class inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
