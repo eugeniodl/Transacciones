@@ -1,6 +1,4 @@
-﻿// Obtener la cadena de conexión
-
-using System.Data;
+﻿using System.Data;
 
 var transact1 = new TransactionOperation(10, 20, 300);
 var transact2 = new TransactionOperation(20, 30, 300);

@@ -9,13 +9,13 @@ public class TransactionOperation
     private readonly decimal amount;
 
     // Obtener si se encuentra dinero en la cuenta 1
-    const string sqlAccount1Fund = "SELECT (Sum(Credit) - Sum(Debit)) as Saldo FROM Accounts WHERE AccountNumber = @OriginAccount";
+    const string sqlAccount1Fund = "SELECT (Sum(Credit) - Sum(Debit)) as Saldo FROM AccountTransactions WHERE AccountNumber = @OriginAccount";
 
     // Consulta para extraer el valor de la cuenta de origen
-    const string sqlWithdrawCredit = "INSERT INTO Accounts (AccountNumber, Debit, Credit) VALUES (@OriginAccount, @Debit, 0)";
+    const string sqlWithdrawCredit = "INSERT INTO AccountTransactions (AccountNumber, Debit, Credit) VALUES (@OriginAccount, @Debit, 0)";
 
     // Consulta para depositar el dinero en el destino
-    const string sqlFundCredit = "INSERT INTO Accounts (AccountNumber, Debit, Credit) VALUES (@DestinationAccount, 0, @Credit)";
+    const string sqlFundCredit = "INSERT INTO AccountTransactions (AccountNumber, Debit, Credit) VALUES (@DestinationAccount, 0, @Credit)";
 
     public TransactionOperation(int origin, int destination, decimal amount)
     {
